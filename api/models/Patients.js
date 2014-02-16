@@ -43,6 +43,10 @@ module.exports = {
       // getDocs:function(cb) {
 
       // }
+  },
+  beforeValidation:function(values,next) {
+  	values.pin = parseInt(values.pin);
+  	next();
   }
 
 };

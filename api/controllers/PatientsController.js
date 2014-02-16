@@ -21,10 +21,20 @@ module.exports = {
     },
     read:function(req,res) {
     	Patients.findOne({id:req.params.id}).done(function(err,patient) {
-    		console.log(patient.bmi())
     		res.render("patient/read.ejs",{patient:patient});
     	});
     },
+    index:function(req,res,next) {
+    	var query = {};
+    	if(req.query.q) {
+    		query = {name:{'LIKE':"%"+req.query.q+"%"}};
+    	}
+    	console.log(query);
+    	Patients.find().where(query).done(function(err,patients) {
+    		if(err) return next(err)
+    		res.json(patients);
+    	});
+	},
 
 
 
