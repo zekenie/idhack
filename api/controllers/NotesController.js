@@ -28,10 +28,10 @@ module.exports = {
    */
   _config: {},
   new: function(req, res){
-      res.render('note/new');
+      res.render('patient/newnotes.ejs');
 
 
-  },
+  }
 
 
 };

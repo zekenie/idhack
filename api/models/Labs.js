@@ -9,7 +9,8 @@
 module.exports = {
 
   attributes: {
-      patient_id: 'integer'
+      patient_id: 'integer',
+      lab: 'string'
   }
 
 };
