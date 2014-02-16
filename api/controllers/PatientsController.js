@@ -24,7 +24,6 @@ module.exports = {
             if(isNaN(parseInt(req.params.id)))
                 return res.send(404);
     	    Patients.findOne({id:req.params.id}).done(function(err,patient) {
-                console.log(patient);
                 res.render("patient/read.ejs",{patient:patient});
     	    });
         }

@@ -58,7 +58,10 @@ module.exports.routes = {
   }
 
   */
-  '/patients/:id/photo': require("../api/controllers/UsersController").photo
+  // '/patients/:id/photo': {
+  //   controller:'PatientsController',
+  //   action:'photo'
+  // }
   /*
 
 

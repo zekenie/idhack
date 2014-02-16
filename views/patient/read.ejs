@@ -1,31 +1,34 @@
 <% include ../header %>
 <link rel="stylesheet" href='/styles/patient.css'>
-<script>
- var patient_id = <%= patient.id %>;
-</script>
+
 <div class="row">
     <div class="col-xs-8">
         <h2> <%= patient.name() %> </h2>
         <i> Date of Birth: <%= patient.dob %></i>
-        <p> 
+        <p>
     </div>
 
     <div class="col-xs-4">
-    <%if(patient.picturesrc){ %>
         <div id="profpic">
-            
-            <img src="">
+            <%if(patient.picturesrc){ %>
+
+                    <img src="">
+
+            <% } else { %>
+                <video id="video"></video>
+                <canvas id="canvas" class="hide"></canvas>
+                <!-- <img src="http://placekitten.com/g/320/261" id="photo" alt="photo"> -->
+                <button id="startbutton">Take photo</button>
+            <% } %>
         </div>
-    <% } %>
-        
     </div>
 </div>
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#info" data-toggle="tab">Info</a></li>  
-  <li><a href="#history" data-toggle="tab">History</a></li>  
-  <li><a href="#prescriptions" data-toggle="tab">Prescriptions</a></li>  
-  <li><a href="#labs" data-toggle="tab">Labs</a></li>  
-  <li><a href="#notes" data-toggle="tab">Notes</a></li>  
+  <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
+  <li><a href="#history" data-toggle="tab">History</a></li>
+  <li><a href="#prescriptions" data-toggle="tab">Prescriptions</a></li>
+  <li><a href="#labs" data-toggle="tab">Labs</a></li>
+  <li><a href="#notes" data-toggle="tab">Notes</a></li>
 </ul>
 <div class="tab-content">
     <div class="tab-pane active" id="info">
@@ -50,7 +53,7 @@
         </div>
         </div>
     </div>
-    
+
     <div class="tab-pane" id="history">
         <br>
         <div class="container">
@@ -100,7 +103,7 @@
         </div>
         </div>
     </div>
-    
+
     </div>
     <div class="tab-pane" id="notes">
         <div class="container">
@@ -120,4 +123,8 @@
 
     </div>
 </div>
+<script>
+ var patient_id = <%= patient.id %>;
+</script>
+<script src="/js/picUploader.js"></script>
 <script src='/js/loader.js'></script>
