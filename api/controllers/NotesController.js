@@ -17,9 +17,6 @@
 
 module.exports = {
 
-	index:function(req,res) {
-
-	}
 
 
   /**
@@ -27,11 +24,5 @@ module.exports = {
    * (specific to NotesController)
    */
   _config: {},
-  new: function(req, res){
-      res.render('patient/newnotes.ejs');
-
-
-  }
-
 
 };

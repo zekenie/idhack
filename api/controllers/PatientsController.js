@@ -35,7 +35,10 @@ module.exports = {
     		res.render("patient/index.ejs",{patients:patients});
     	});
 	},
-
+	photo:function(req,res) {
+		console.log('fo')
+		// res.render("patient/photo.ejs",{});
+	},
 
 
 
