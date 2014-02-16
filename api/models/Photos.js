@@ -12,6 +12,7 @@ module.exports = {
 
   	patient_id: 'integer',
     path: 'string',
+    description: 'string'
     
   }
 
