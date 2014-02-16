@@ -9,11 +9,20 @@
 module.exports = {
 
   attributes: {
-  	
+
+  	systolic:'number',
+  	diastolic:'number',
+  	bp:function() {
+  		return this.systolic + '/' + this.diastolic;
+  	},
+  	hr:'number',
+  	temp:'number',
+  	spo:'number'
+
   	/* e.g.
   	nickname: 'string'
   	*/
-    
+
   }
 
 };

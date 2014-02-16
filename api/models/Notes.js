@@ -10,10 +10,10 @@ module.exports = {
 
   attributes: {
 
-      patient_id: 'integer', 
+      patient_id: 'integer',
       user_id: 'integer',
-      note: 'string',
-    
+      note: 'string'
+
   }
 
 };

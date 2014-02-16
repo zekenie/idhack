@@ -19,8 +19,14 @@ module.exports = {
     new: function(req, res){
         res.render('patient/new.ejs');
     },
-    
-  
+    read:function(req,res) {
+    	Patients.findOne({id:req.params.id}).done(function(err,patient) {
+    		console.log(patient.bmi())
+    		res.render("patient/read.ejs",{patient:patient});
+    	});
+    },
+
+
 
 
   /**
@@ -29,5 +35,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };

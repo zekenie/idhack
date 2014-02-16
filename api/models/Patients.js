@@ -15,6 +15,13 @@ module.exports = {
       	return this.first + " " + this.last;
       },
       dob: {type:'date',required:true},
+      address: 'string',
+      phone:'string',
+      height:'number',
+      weight:'number',
+      bmi:function() {
+      	return this.weight/(this.height*this.height);
+      },
       bed: 'string',
       allergies: 'array',
       pin: 'number',
