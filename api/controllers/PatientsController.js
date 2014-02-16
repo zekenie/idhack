@@ -27,10 +27,9 @@ module.exports = {
     index:function(req,res,next) {
     	var query = {};
     	if(req.query.q) {
-    		query = {name:{'LIKE':"%"+req.query.q+"%"}};
+    		query = {first:{contains:req.query.q}};
     	}
-    	console.log(query);
-    	Patients.find().where(query).done(function(err,patients) {
+    	Patients.find(query).done(function(err,patients) {
     		if(err) return next(err)
     		res.json(patients);
     	});
