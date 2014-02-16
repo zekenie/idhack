@@ -25,7 +25,8 @@ module.exports = {
    * (specific to NotesController)
    */
   _config: {},
-  create: function(req, res){
+  new: function(req, res){
+      res.render('/note/create'):
 
   
   },
