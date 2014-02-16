@@ -21,7 +21,10 @@ module.exports = {
     },
     read:function(req,res) {
     	Patients.findOne({id:req.params.id}).done(function(err,patient) {
-    		res.render("patient/read.ejs",{patient:patient});
+    		patient.vitals(function(err,vitals) {
+    			res.render("patient/read.ejs",{patient:patient,vitals:vitals});
+    		})
+
     	});
     },
     index:function(req,res,next) {
