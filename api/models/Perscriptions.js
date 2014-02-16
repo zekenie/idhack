@@ -9,10 +9,11 @@
 module.exports = {
 
   attributes: {
+
+      patient_id: 'integer',
+      note_id: 'integer',
+      perscription: 'string'
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
     
   }
 

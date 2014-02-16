@@ -9,10 +9,9 @@
 module.exports = {
 
   attributes: {
-  	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
+
+  	patient_id: 'integer',
+    path: 'string',
     
   }
 
