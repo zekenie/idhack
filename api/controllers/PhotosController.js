@@ -4,28 +4,33 @@
 */
 var path = require('path');
 var fs = require('fs');
-module.exports = {
-    create: function(req,res){
-        var tempPath = req.files.file.path;
-        //gets the name of the file from its path
-        var photoName = tempPath.split('/')[tempPath.split('/').length-1];
-        var targetPath = path.resolve('./assets/images/patientsimages/'+photoName);
-        var photoObj = {
-            description: req.body.description,
-            //save the photoname so that photos could easily be moved to other directories and all that would need to change is the prefix before the image name
-            path: photoName
-        };
-        fs.rename(tempPath, targetPath, function(err) {
-            if (err) throw err;
-            console.log("Upload completed!");
-        });
-        Photos.create(photoObj).done(function(err, doc){
-            console.log(doc);
-            res.redirect('/patient/read');
-        });
-        
-    },
 
+var getPhotoBuffer = function(dataUrl) {
+    var regex = /^data:.+\/(.+);base64,(.*)$/;
+    var matches = dataUrl.match(regex);
+    var ext = matches[1];
+    var data = matches[2];
+    return new Buffer(data, 'base64');
+}
+
+module.exports = {
+    create: function(req,res,next){
+        var buffer = getPhotoBuffer(req.body.file);
+        var photoPath = "/images/patientsimages/" + req.body.patient_id + "_" + Date.now() + ".png";
+        fs.writeFile("./assets" + photoPath,buffer,function(err,status) {
+            if(err) return next(err)
+            var photoObj = {
+                patient_id:req.body.patient_id,
+                description: req.body.description || "",
+                //save the photoname so that photos could easily be moved to other directories and all that would need to change is the prefix before the image name
+                path: photoPath
+            };
+            Photos.create(photoObj).done(function(err, doc){
+                if(err) return next(err)
+                res.json(doc);
+            });
+        });
+    },
 
   _config: {}
 };

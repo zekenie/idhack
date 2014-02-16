@@ -8,10 +8,10 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+	<nav style="z-index:0;" class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
 		<div class="container">
-			<img src="/images/logo.png" height="43" style="margin-top:5px;">
-			<form class="navbar-form navbar-right" role="search" method="get" action="/patients">
+			<a class="brand pull-left"><img src="/images/logo.png" height="43" style="margin-top:5px;"></a>
+			<form class="navbar-form" role="search" method="get" action="/patients">
 				<div class="form-group">
 					<input type="text" class="form-control" name="q" placeholder="Find Patient">
 				</div>

@@ -57,14 +57,6 @@ module.exports.routes = {
     action: 'inbox'
   }
 
-  */
-  // '/patients/:id/photo': {
-  //   controller:'PatientsController',
-  //   action:'photo'
-  // }
-  /*
-
-
   // If you decided to call your action `index` instead of `inbox`,
   // since the `index` action is the default, you can shortcut even further to:
   '/': 'MessageController'

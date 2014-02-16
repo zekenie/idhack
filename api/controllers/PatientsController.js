@@ -16,6 +16,12 @@
  */
 
 module.exports = {
+	create: function(req,res,next) {
+		Patients.create(req.body,function(err,patient) {
+			if(err) return console.log(err);
+			res.redirect('/patients/read/' + patient.id);
+		});
+	},
     new: function(req, res){
         res.render('patient/new.ejs');
     },
@@ -24,7 +30,9 @@ module.exports = {
             if(isNaN(parseInt(req.params.id)))
                 return res.send(404);
     	    Patients.findOne({id:req.params.id}).done(function(err,patient) {
-                res.render("patient/read.ejs",{patient:patient});
+    	    	Photos.findOne({patient_id:req.params.id}).done(function(err,photo) {
+	                res.render("patient/read.ejs",{patient:patient,photo:photo});
+    	    	});
     	    });
         }
     ,
@@ -37,10 +45,6 @@ module.exports = {
     		if(err) return next(err)
     		res.render("patient/index.ejs",{patients:patients});
     	});
-	},
-	photo:function(req,res) {
-		console.log('fo')
-		// res.render("patient/photo.ejs",{});
 	},
 
 

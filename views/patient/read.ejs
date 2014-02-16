@@ -10,14 +10,14 @@
 
     <div class="col-xs-4">
         <div id="profpic">
-            <%if(patient.picturesrc){ %>
+            <%if(photo){ %>
 
-                    <img src="">
+                    <img class="img-thumbnail pull-right" width="240" style="z-index:99999; margin-top:-40px;" src="<%=photo.path%>">
 
             <% } else { %>
                 <video id="video"></video>
                 <canvas id="canvas" class="hide"></canvas>
-                <!-- <img src="http://placekitten.com/g/320/261" id="photo" alt="photo"> -->
+                <img src="" class="hide" id="photo" alt="photo">
                 <button id="startbutton">Take photo</button>
             <% } %>
         </div>
@@ -126,5 +126,7 @@
 <script>
  var patient_id = <%= patient.id %>;
 </script>
+<%if(!photo){ %>
 <script src="/js/picUploader.js"></script>
+<% } %>
 <script src='/js/loader.js'></script>

@@ -1,0 +1,14 @@
+function (err,status) {
+            if(err) return next(err)
+            var photoObj = {
+                patient_id:req.body.patient_id,
+                description: req.body.description || "",
+                //save the photoname so that photos could easily be moved to other directories and all that would need to change is the prefix before the image name
+                path: photoPath
+            };
+            Photos.create(photoObj).done(function(err, doc){
+                if(err) return next(err)
+                console.log(doc);
+                res.redirect('/patient/read');
+            });
+        }
