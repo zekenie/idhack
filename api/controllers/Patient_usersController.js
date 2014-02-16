@@ -1,5 +1,5 @@
 /**
- * PatientController
+ * Patient_usersController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -22,7 +22,7 @@ module.exports = {
 
   /**
    * Overrides for the settings in `config/controllers.js`
-   * (specific to PatientController)
+   * (specific to Patient_usersController)
    */
   _config: {}
 
