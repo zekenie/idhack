@@ -46,6 +46,8 @@ module.exports = {
   },
   beforeValidation:function(values,next) {
   	values.pin = parseInt(values.pin);
+  	values.height = parseFloat(values.height);
+  	values.weight = parseFloat(values.weight);
   	next();
   }
 

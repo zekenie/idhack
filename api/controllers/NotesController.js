@@ -16,7 +16,12 @@
  */
 
 module.exports = {
-
+	create:function(req,res) {
+		Notes.create(req.body,function(err,note) {
+			if(err) return console.log(err);
+			res.redirect("/patients/read/" + note.patient_id);
+		});
+	},
 
   /**
    * Overrides for the settings in `config/controllers.js`

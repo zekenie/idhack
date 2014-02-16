@@ -19,8 +19,12 @@ module.exports = {
     new: function(req,res){
         res.render('patient/newlab');
     },
-    
-  
+    create:function(req,res){
+    	Labs.create(req.body,function(err,labs) {
+    		res.redirect('/patients/read/' + labs.patient_id);
+    	});
+    },
+
 
 
   /**
@@ -29,5 +33,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };
