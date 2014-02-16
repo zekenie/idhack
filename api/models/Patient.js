@@ -19,7 +19,7 @@ module.exports = {
   	//returns boolean if they have a bed
   	inPatient:function() {
   		return !!this.bed;
-  	}
+  	},
   	pin:{
   		type:'integer',
   		required:true,
@@ -31,5 +31,6 @@ module.exports = {
 
 
   }
+
 
 };
