@@ -31,7 +31,7 @@ module.exports = {
     	}
     	Patients.find(query).done(function(err,patients) {
     		if(err) return next(err)
-    		res.json(patients);
+    		res.render("patient/index.ejs",{patients:patients});
     	});
 	},
 

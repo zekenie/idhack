@@ -1,0 +1,20 @@
+<% include ../header %>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>DOB</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% patients.forEach(function(patient) { %>
+				<tr>
+					<td><a href="/patients/<%=patient.id%>"><%=patient.name()%></a></td>
+					<td><%=patient.dob%></td>
+				</tr>
+			<% }); %>
+		</tbody>
+	</table>
+
+<% include ../footer %>
