@@ -17,7 +17,25 @@ module.exports = {
       dob: {type:'date',required:true},
       bed: 'string',
       allergies: 'array',
-      pin: 'number'
+      pin: 'number',
+      user_id:'number',
+      doc:function(cb) {
+      	Users.find({id:this.user_id});
+      },
+      labs:function(cb) {
+      	Labs.find({patient_id:this.id},cb);
+      },
+      vitals:function(cb) {
+      	Vitals.find({patient_id:this.id},cb);
+      }
+      // getUsers:function(query,cb) {
+      // 	Patient_users.find()
+      // 	.where({user_id:this.id})
+      // 	.where(query || {}).exec(cb);
+      // },
+      // getDocs:function(cb) {
+
+      // }
   }
 
 };
