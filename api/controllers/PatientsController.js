@@ -21,7 +21,7 @@ module.exports = {
 			req.body.allergies = req.body.allergies.split('\n');
 		Patients.create(req.body,function(err,patient) {
 			if(err) return console.log(err);
-			res.redirect('/patients/read/' + patient.id);
+            res.redirect('/patients/read/' + patient.id);
 		});
 	},
     new: function(req, res){
