@@ -9,11 +9,13 @@
 module.exports = {
 
   attributes: {
+  	  master_id:'number',
       first: 'string',
       last:'string',
       name:function() {
       	return this.first + " " + this.last;
       },
+      sex:'string',
       dob: {type:'date',required:true},
       address: 'string',
       phone:'string',
@@ -41,13 +43,6 @@ module.exports = {
       perscriptions:function(cb) {
         Perscriptions.find({patient_id:this.id}, cb);
       }
-      // 	Patient_users.find()
-      // 	.where({user_id:this.id})
-      // 	.where(query || {}).exec(cb);
-      // },
-      // getDocs:function(cb) {
-
-      // }
   },
   beforeValidation:function(values,next) {
   	values.pin = parseInt(values.pin);
