@@ -16,6 +16,12 @@
  */
 
 module.exports = {
+
+  create: function(req,res){
+      Vitals.create(req.body,function(err,labs) {
+    		res.redirect('/patients/read/' + labs.patient_id);
+    	});
+  },
   new: function(req,res){
         res.render('vitals/new');
     },
