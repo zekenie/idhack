@@ -9,7 +9,7 @@
 module.exports = {
 
   attributes: {
-
+  	patient_id:'number',
   	systolic:'number',
   	diastolic:'number',
   	bp:function() {
@@ -23,6 +23,12 @@ module.exports = {
   	nickname: 'string'
   	*/
 
+  },
+  beforeValidation:function(values,next) {
+  	for(key	 in values) {
+  		values[key] = parseFloat(values[key]);
+  	}
+  	next();
   }
 
 };

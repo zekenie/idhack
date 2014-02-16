@@ -17,9 +17,9 @@
 
 module.exports = {
   new: function(req,res){
-        res.render('patients/newvitals');
+        res.render('vitals/new');
     },
-  
+
 
 
   /**
@@ -28,5 +28,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };

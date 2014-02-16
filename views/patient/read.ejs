@@ -32,18 +32,45 @@
 </ul>
 <div class="tab-content">
     <div class="tab-pane active" id="info">
+
         <div class="container">
         <div class="row">
             <br>
             <div class="col-xs-6">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>BP</th>
+                            <th>HR</th>
+                            <th>Temp</th>
+                            <th>SPO2</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vitalsContainer">
+                        <tr>
+                            <form method="post" action="/vitals/create">
+                                <input name="patient_id" type="hidden" value="<%= patient.id %>">
+                                <td width="20%"><input style="width:40px; padding:5px" class="form-control pull-left" autofocus name="systolic" type="text">
+
+                                    <input style="width:35px;padding:5px"class="form-control pull-right" name="diastolic" type="text">
+                                </td>
+                                <td><input class="form-control" name="hr" type="text"></td>
+                                <td><input class="form-control" name="temp" type="text"></td>
+                                <td><input class="form-control" name="spo" type="text"></td>
+                                <td><button class="btn btn-success" type="submit">Add</button></td>
+                            </form>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-6 well">
                 Bed: <%= patient.bed %>
                 <br>
                 Address: <%= patient.address %>
                 <br>
                 Phone: <%= patient.phone %>
                 <br>
-            </div>
-            <div class="col-xs-6">
                 Weight: <%= patient.weight %>
                 <br>
                 Height: <%= patient.height %>
@@ -65,11 +92,41 @@
     <br>
     <div class="container">
         <div class="row">
-        <div class="col-xs-6" id="viewlabs">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Na+</th>
+                        <th>K+</th>
+                        <th>Cl-</th>
+                        <th>HCO3-</th>
+                        <th>BUN</th>
+                        <th>Creatinine</th>
+                        <th>Glucose</th>
+                        <th>Timestamp</th>
+
+                    </tr>
+                </thead>
+                <tbody id="viewlabs">
+                    <tr>
+                        <form role="form" method="post" action="/labs/create">
+                            <input name="patient_id" type="hidden" value="<%= patient.id %>">
+                            <td><input class="form-control" autofocus name="na" type="text"></td>
+                            <td><input class="form-control" name="k" type="text"></td>
+                            <td><input class="form-control" name="cl" type="text"></td>
+                            <td><input class="form-control" name="hco3" type="text"></td>
+                            <td><input class="form-control" name="bun" type="text"></td>
+                            <td><input class="form-control" name="creatinine" type="text"></td>
+                            <td><input class="form-control" name="glucose" type="text"></td>
+                            <td><button type="submit" class="btn btn-success">Add</button>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="col-xs-6">
+       <!--  <div class="col-xs-4">
             <form role="form" method="post" action="/labs/create">
-                <input class="form-control" name="patient_id" type="hidden" value="<%= patient.id %>">
+                <input name="patient_id" type="hidden" value="<%= patient.id %>">
                 <div class="form-group">
                     <label for="na">Na</label>
                     <input class="form-control" autofocus name="na" type="text">
@@ -100,7 +157,7 @@
                 </div>
                 <button type="submit" class="btn btn-success">Add</button>
             </form>
-        </div>
+        </div> -->
         </div>
     </div>
 
