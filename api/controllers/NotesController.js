@@ -24,7 +24,11 @@ module.exports = {
    * Overrides for the settings in `config/controllers.js`
    * (specific to NotesController)
    */
-  _config: {}
+  _config: {},
+  create: function(req, res){
+
+  
+  },
 
   
 };
