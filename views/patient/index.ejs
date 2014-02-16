@@ -5,13 +5,15 @@
 			<tr>
 				<th>Name</th>
 				<th>DOB</th>
+				<th>Gender</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% patients.forEach(function(patient) { %>
 				<tr>
-					<td><a href="/patients/<%=patient.id%>"><%=patient.name()%></a></td>
+					<td><a href="/patients/read/<%=patient.id%>"><%=patient.name()%></a></td>
 					<td><%=patient.dob%></td>
+					<td><%=patient.gender%></td>
 				</tr>
 			<% }); %>
 		</tbody>

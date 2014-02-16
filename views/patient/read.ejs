@@ -1,14 +1,19 @@
 <% include ../header %>
 <link rel="stylesheet" href='/styles/patient.css'>
+<script>
+ var patient_id = <%= patient.id %>;
+</script>
 <div class="row">
     <div class="col-xs-8">
         <h2> <%= patient.name() %> </h2>
-        <br> 
+        <i> Date of Birth: <%= patient.dob %></i>
+        <p> 
     </div>
 
     <div class="col-xs-4">
     <%if(patient.picturesrc){ %>
         <div id="profpic">
+            
             <img src="">
         </div>
     <% } %>
@@ -24,12 +29,95 @@
 </ul>
 <div class="tab-content">
     <div class="tab-pane active" id="info">
+        <div class="container">
+        <div class="row">
+            <br>
+            <div class="col-xs-6">
+                Bed: <%= patient.bed %>
+                <br>
+                Address: <%= patient.address %>
+                <br>
+                Phone: <%= patient.phone %>
+                <br>
+            </div>
+            <div class="col-xs-6">
+                Weight: <%= patient.weight %>
+                <br>
+                Height: <%= patient.height %>
+                <br>
+                BMI: <%= patient.bmi() %>
+            </div>
+        </div>
+        </div>
     </div>
     
     <div class="tab-pane" id="history">
-    fdaf
+        <br>
+        <div class="container">
+            <%= patient.history %>
+        </div>
     </div>
     <div class="tab-pane" id="prescriptions"></div>
-    <div class="tab-pane" id="labs"></div>
-    <div class="tab-pane" id="notes"></div>
+    <div class="tab-pane" id="labs">
+    <br>
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-6" id="viewlabs">
+        </div>
+        <div class="col-xs-6">
+            <form role="form" method="post" action="/labs/create">
+                <input class="form-control" name="patient_id" type="hidden" value="<%= patient.id %>">
+                <div class="form-group">
+                    <label for="na">Na</label>
+                    <input class="form-control" autofocus name="na" type="text">
+                </div>
+                <div class="form-group">
+                <label for="k">K</label>
+                <input class="form-control" name="k" type="text">
+                </div>
+                <div class="form-group">
+                <label for="cl">Cl</label>
+                <input class="form-control" name="cl" type="text">
+                </div>
+                <div class="form-group">
+                <label for="cl">hco3</label>
+                <input class="form-control" name="hco3" type="text">
+                </div>
+                <div class="form-group">
+                <label for="bun">BUN</label>
+                <input class="form-control" name="bun" type="text">
+                </div>
+                <div class="form-group">
+                <label for="creatinine">Creatinine</label>
+                <input class="form-control" name="creatinine" type="text">
+                </div>
+                <div class="form-group">
+                <label for="glucose">Glucose</label>
+                <input class="form-control" name="glucose" type="text">
+                </div>
+                <button type="submit" class="btn btn-success">Add</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    
+    </div>
+    <div class="tab-pane" id="notes">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-xs-6" id="viewnotes"></div>
+                <div class="col-xs-6">
+                    <form role="form" method="post" action="/notes/create" >
+                        <input class="form-control" name="patient_id" type="hidden" value="<%= patient.id %>">
+                        <textarea type="text" name="note" class="form-control"></textarea>
+                        <button type="submit" class="btn btn-success">Add Note</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>
+<script src='/js/loader.js'></script>
