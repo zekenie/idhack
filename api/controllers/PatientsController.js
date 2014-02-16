@@ -17,6 +17,8 @@
 
 module.exports = {
 	create: function(req,res,next) {
+		if(req.body.allergies)
+			req.body.allergies = req.body.allergies.split('\n');
 		Patients.create(req.body,function(err,patient) {
 			if(err) return console.log(err);
 			res.redirect('/patients/read/' + patient.id);
@@ -25,8 +27,7 @@ module.exports = {
     new: function(req, res){
         res.render('patient/new.ejs');
     },
-    read:
-        function(req,res,next) {
+    read:function(req,res,next) {
             if(isNaN(parseInt(req.params.id)))
                 return res.send(404);
     	    Patients.findOne({id:req.params.id}).done(function(err,patient) {

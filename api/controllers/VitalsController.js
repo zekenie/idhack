@@ -19,6 +19,11 @@ module.exports = {
   new: function(req,res){
         res.render('vitals/new');
     },
+    create:function(req,res) {
+    	Vitals.create(req.body,function(err,vitals) {
+    		res.redirect("/patients/read/" + vitals.patient_id);
+    	});
+    },
 
 
 
