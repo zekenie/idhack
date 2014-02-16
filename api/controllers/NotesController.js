@@ -17,10 +17,6 @@
 
 module.exports = {
 
-	index:function(req,res) {
-
-	},
-
 
   /**
    * Overrides for the settings in `config/controllers.js`
