@@ -34,8 +34,13 @@ module.exports = {
       },
       vitals:function(cb) {
       	Vitals.find({patient_id:this.id},cb);
+      },
+      notes:function(cb) {
+        Notes.find({patient_id:this.id}, cb);
+      },
+      perscriptions:function(cb) {
+        Perscriptions.find({patient_id:this.id}, cb);
       }
-      // getUsers:function(query,cb) {
       // 	Patient_users.find()
       // 	.where({user_id:this.id})
       // 	.where(query || {}).exec(cb);
