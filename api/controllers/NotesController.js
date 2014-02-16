@@ -16,8 +16,8 @@
  */
 
 module.exports = {
-    
-  
+
+
 
 
   /**
@@ -26,10 +26,10 @@ module.exports = {
    */
   _config: {},
   new: function(req, res){
-      res.render('/note/create'):
+      res.render('note/new');
 
-  
+
   },
 
-  
+
 };
