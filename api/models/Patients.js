@@ -21,6 +21,7 @@ module.exports = {
       phone:'string',
       height:'number',
       weight:'number',
+      history: {type:'string', defaultsTo: ' '},
       bmi:function() {
       	return this.weight/(this.height*this.height);
       },

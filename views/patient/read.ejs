@@ -84,7 +84,16 @@
     <div class="tab-pane" id="history">
         <br>
         <div class="container">
-            <%= patient.history %>
+            <div class="well">
+                <div id="edithistory">
+                    <form action="/patients/update/<%= patient.id %>" method="post">
+                        <textarea  name="history" class="form-control" type="text"></textarea>
+                        <input type="hidden" name="_method" value="puts"></input>
+                        <button type="submit" class="btn btn-success">Revise History</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
     <div class="tab-pane" id="prescriptions"></div>
