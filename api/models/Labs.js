@@ -10,7 +10,13 @@ module.exports = {
 
   attributes: {
       patient_id: 'integer',
-      lab: 'string'
+      na:'number',
+      k:'number',
+      cl:'number',
+      hco3:'number',
+      bun:'number',
+      creatinine:'number',
+      glucose:'number'
   }
 
 };

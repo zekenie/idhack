@@ -34,7 +34,7 @@ module.exports.routes = {
   // (This would also work if you had a file at: `/views/home.ejs`)
   '/': {
     view: 'layout'
-  }
+  },
 
   /*
   // But what if you want your home page to display
@@ -56,6 +56,10 @@ module.exports.routes = {
     controller: 'MessageController',
     action: 'inbox'
   }
+
+  */
+  '/patients/:id/photo': require("../api/controllers/UsersController").photo
+  /*
 
 
   // If you decided to call your action `index` instead of `inbox`,
