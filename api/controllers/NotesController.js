@@ -26,7 +26,7 @@ module.exports = {
    */
   _config: {},
   new: function(req, res){
-      res.render('notes/new.ejs');
+      res.render('patient/newnotes.ejs');
 
 
   }

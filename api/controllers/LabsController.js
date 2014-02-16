@@ -16,6 +16,9 @@
  */
 
 module.exports = {
+    new: function(req,res){
+        res.render('patient/newlab');
+    },
     
   
 

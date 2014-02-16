@@ -1,1 +1,35 @@
-<%= patient.bmi() %>
+<% include ../header %>
+<link rel="stylesheet" href='/styles/patient.css'>
+<div class="row">
+    <div class="col-xs-8">
+        <h2> <%= patient.name() %> </h2>
+        <br> 
+    </div>
+
+    <div class="col-xs-4">
+    <%if(patient.picturesrc){ %>
+        <div id="profpic">
+            <img src="">
+        </div>
+    <% } %>
+        
+    </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#info" data-toggle="tab">Info</a></li>  
+  <li><a href="#history" data-toggle="tab">History</a></li>  
+  <li><a href="#prescriptions" data-toggle="tab">Prescriptions</a></li>  
+  <li><a href="#labs" data-toggle="tab">Labs</a></li>  
+  <li><a href="#notes" data-toggle="tab">Notes</a></li>  
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="info">
+    </div>
+    
+    <div class="tab-pane" id="history">
+    fdaf
+    </div>
+    <div class="tab-pane" id="prescriptions"></div>
+    <div class="tab-pane" id="labs"></div>
+    <div class="tab-pane" id="notes"></div>
+</div>
