@@ -9,9 +9,15 @@
 module.exports = {
 
   attributes: {
-
-      dob: 'date',
-      name: 'string' 
+      first: 'string',
+      last:'string',
+      name:function() {
+      	return this.first + " " + this.last;
+      },
+      dob: {type:'date',required:true},
+      bed: 'string',
+      allergies: 'array',
+      pin: 'number'
   }
 
 };

@@ -2,7 +2,7 @@
  * UsersController
  *
  * @module      :: Controller
- * @description	:: A set of functions called `actions`.
+ * @description :: A set of functions called `actions`.
  *
  *                 Actions contain code telling Sails how to respond to a certain type of request.
  *                 (i.e. do stuff, then send some JSON, show an HTML page, or redirect to another URL)
@@ -15,9 +15,15 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+
+// var Users = require("")
 module.exports = {
-    
-  
+
+  // create:function(req,res) {
+  //   Users.create(req.body,function(err,user) {
+  //     res.json(user);
+  //   });
+  // },
 
 
   /**
@@ -26,5 +32,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };
